@@ -1,0 +1,14 @@
+<ul>
+    <% @missions.each do |mission|%>
+        <li>
+            <%= mission.title %>
+            <%= link_to 'Show' , mission_path(mission) %>
+            <%= link_to 'Edit' , edit_mission_path(mission)%>
+            <%= link_to 'Destroy' , mission_path(mission), method: :delete,
+                                        data:{confirm: "WARNING: Are you sure?" }%>
+
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to 'New Mission' , new_mission_path%>

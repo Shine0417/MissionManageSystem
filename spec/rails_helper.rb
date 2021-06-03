@@ -7,13 +7,13 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'capybara/rails'
 
-Capybara.register_driver :chrome do |app|
+Capybara.register_driver :selenium_chrome_headless do |app|
 	options = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu disable-dev-shm-usage])
 
 	Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
-Capybara.javascript_driver = :chrome
+Capybara.javascript_driver = :selenium_chrome_headless
 
 # Add additional requires below this line. Rails is not loaded until this point!
 

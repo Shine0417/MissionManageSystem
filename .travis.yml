@@ -1,12 +1,23 @@
 # .travis.yml
 
 language: ruby
+dist: xenial
 rvm:
 - 3.0.1
-install:
-  - bundle install
+cache:
+  bundler: true
 services:
   - postgresql
+install:
+  - bundle install
+  - bundle exec rails webpacker:install
+
+addons:
+  chrome: stable
+before_install:
+  - bundle exec rails server
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  ⋮
 script:
   - bundle exec rails webpacker:compile RAILS_ENV=test 
   - bundle exec rails db:migrate:reset RAILS_ENV=test

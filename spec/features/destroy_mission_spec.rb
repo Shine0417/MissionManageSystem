@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'destroy mission', type: :feature do
   let(:test_mission) { { title: 'Test title', description: 'Hello World' } }
 
-  scenario 'Delete mission', :js, driver: :selenium_chrome do
+  scenario 'Delete mission', driver: :selenium_chrome_headless do
     Mission.create(title: test_mission[:title], description: test_mission[:description])
 
     visit '/missions'

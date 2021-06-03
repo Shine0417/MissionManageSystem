@@ -1,2 +1,4 @@
-<h1>Missions#show</h1>
-<p>Find me in app/views/missions/show.html.erb</p>
+<%= @mission.title%>
+<%= @mission.description%>
+<%= link_to t('edit') , edit_mission_path(@mission)%>
+<%= link_to t('home') ,missions_path%>

@@ -1,0 +1,17 @@
+"zh-TW":
+  hello_world: 哈囉
+  show: "檢視"
+  edit: "編輯"
+  home: "首頁"
+  destroy: "刪除"
+  destroy_warning: "[警告]: 確認刪除?"
+  new_mission: "新增任務"
+  title: "標題"
+  description: "內容"
+  submit: "送出"
+  notice:
+    create_mission: "新增任務成功!"
+    update_mission: "已更新任務!"
+    destroy_mission:  "刪除任務成功!"
+  admin:
+    event: 活動管理

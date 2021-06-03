@@ -31,3 +31,16 @@
 
 en:
   hello: "Hello world"
+  show: "Show"
+  edit: "Edit"
+  home: "Home"
+  destroy: "Destroy"
+  destroy_warning: "WARNING: Are You Sure?"
+  new_mission: "New Mission"
+  title: "Title"
+  description: "Description"
+  submit: "Submit"
+  notice:
+    create_mission: "Created a new mission!"
+    update_mission: "mission updated!"
+    destroy_mission:  "Mission Destroyed"

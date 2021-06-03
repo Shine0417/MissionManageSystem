@@ -1,0 +1,15 @@
+<% if @mission.errors.present? %>
+  <ul>
+    <% @mission.errors.each do |err|%>
+      <li><%= "#{err.full_message}"%></li>
+    <%end%>
+  </ul>
+<%end%>
+
+<%= form_for @mission do |f|%>
+  <%= f.label :title, t('title')%>
+  <%= f.text_field :title, autofocus: true %>
+  <%= f.label :description, t('description')%>
+  <%= f.text_field :description %>
+  <%= f.submit t('submit')%>
+<% end %>

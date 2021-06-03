@@ -1,7 +1,7 @@
 <% if @mission.errors.present? %>
   <ul>
     <% @mission.errors.each do |err|%>
-      <li><%= "#{err.full_message}"%></li>
+      <li><%= err.full_message %></li>
     <%end%>
   </ul>
 <%end%>

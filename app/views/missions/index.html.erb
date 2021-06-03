@@ -1,5 +1,5 @@
 <ol>
-  <% @missions.each do |mission|%>
+  <% @missions.order(created_at: :asc).each do |mission|%>
     <li id="li_<%= mission[:id] %>">
       <%= mission.title %>
       <%= link_to t('show') , mission_path(mission) %>

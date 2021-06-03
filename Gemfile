@@ -37,6 +37,7 @@ group :development, :test do
   gem 'rexml'
   gem 'shoulda-matchers', '~> 4.0'
   gem 'rails-controller-testing'
+  gem 'selenium-webdriver', '>= 3.13.1'
 end
 
 group :development do
@@ -50,7 +51,6 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end

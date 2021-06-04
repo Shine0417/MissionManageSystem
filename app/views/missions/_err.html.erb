@@ -1,0 +1,8 @@
+<%# param: object: %>
+<% if object.errors.present? %>
+  <ul>
+    <% object.errors.each do |err|%>
+      <li><%= err.full_message %></li>
+    <%end%>
+  </ul>
+<%end%>

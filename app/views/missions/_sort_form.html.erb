@@ -1,9 +1,9 @@
 <%# param: controller: , model:  %>
 <%= form_tag({controller: controller, action: "index"}, method: :get) do %>
   <%= label_tag :sort, t('sort_by') %>
-  <%= select_tag :sort, options_for_select(model.column_names, sort_param(params[:sort])) %>
+  <%= select_tag :sort, options_for_select(model.column_names, sort_param(@sort_by)) %>
   
-  <%= check_box_tag :reverse, "1", !params[:reverse].nil? %>
+  <%= check_box_tag :reverse, "DESC", (@sort_dir == 'DESC') %>
   <%= label_tag :reverse, t('reverse') %>
   
   <%= submit_tag t('submit') %>

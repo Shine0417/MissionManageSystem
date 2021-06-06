@@ -52,7 +52,7 @@ class MissionsController < ApplicationController
   end
 
   def mission_params
-    params.require(:mission).permit(:title, :description, :due_date, :status)
+    params.require(:mission).permit(:title, :description, :due_date, :status, :priority)
   end
 
   def sort_by

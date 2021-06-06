@@ -42,6 +42,10 @@ en:
         pending: "Pending"
         in_progress: "In Progress"
         complete: "Complete"
+        priority: "Priority"
+        low: "Low"
+        medium: "Medium"
+        high: "High"
   notice:
     create_mission: "Created a new mission!"
     update_mission: "mission updated!"

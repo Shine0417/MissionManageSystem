@@ -1,5 +1,6 @@
 class Mission < ApplicationRecord
   enum status: { pending: 0, in_progress: 1, complete: 2 }
-  validates :title, :description, :status, presence: true
+  enum priority: { low: 0, medium: 1, high: 2 }
+  validates :title, :description, :status, :priority, presence: true
   validates_uniqueness_of :title, case_sensitive: true
 end

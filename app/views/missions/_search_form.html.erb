@@ -1,0 +1,12 @@
+<%# param: controller: , model:  %>
+<%= form_tag({controller: controller, action: "index"}, method: :get) do %>
+  <%= text_field_tag :title, @search_title, placeholder: t('enter_text') , autofocus: true %>
+  <%= select_tag :status, options_for_select([[t('all'), "All"]] + translate(Mission.statuses.keys, Mission), @search_status) %>
+  
+  <%= label_tag :sort, t('sort_by') %>
+  <%= select_tag :sort, options_for_select(translate(model.column_names, model), @sort_by) %>
+  <%= check_box_tag :reverse, "DESC", (@sort_dir == 'DESC') %>
+  <%= label_tag :reverse, t('reverse') %>
+  
+  <%= submit_tag t('search') , name: nil %>
+<% end %>

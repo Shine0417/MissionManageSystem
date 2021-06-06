@@ -2,7 +2,11 @@ class MissionsController < ApplicationController
   before_action :find_mission_by_id, only: %i[show edit update destroy]
 
   def index
-    @missions = Mission.order(sort)
+    @missions = Mission.all.order(sort)
+
+    @missions = @missions.where('title like ?', @search_title).order(sort) if search_title
+
+    @missions = @missions.where({ status: Mission.statuses[@search_status] }).order(sort) if search_status
   end
 
   def show; end
@@ -15,7 +19,11 @@ class MissionsController < ApplicationController
 
   def update
     if @mission.update(mission_params)
-      redirect_to mission_path(@mission), notice: I18n.t(:update_mission, scope: :notice)
+      if params[:redirect]
+        redirect_to({ action: params[:redirect] }, notice: I18n.t(:update_mission, scope: :notice))
+      else
+        redirect_to mission_path(@mission), notice: I18n.t(:update_mission, scope: :notice)
+      end
     else
       render :edit
     end
@@ -44,9 +52,9 @@ class MissionsController < ApplicationController
   end
 
   def mission_params
-    params.require(:mission).permit(:title, :description, :due_date)
+    params.require(:mission).permit(:title, :description, :due_date, :status, :priority)
   end
-  
+
   def sort_by
     @sort_by = (Mission.column_names.include? params[:sort]) ? params[:sort] : 'created_at'
   end
@@ -57,5 +65,15 @@ class MissionsController < ApplicationController
 
   def sort
     @sort = { sort_by => sort_dir }
+  end
+
+  def search_title
+    @search_title = params[:title] if params[:title].present?
+  end
+
+  def search_status
+    if params[:status].present? && (Mission.statuses.keys.include? params[:status])
+      @search_status = params[:status]
+    end
   end
 end

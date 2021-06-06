@@ -1,9 +1,5 @@
 module ApplicationHelper
-  def sort_param(param)
-    if param.nil?
-      :created_at
-    else
-      param
-    end
+  def translate(arr, model)
+    arr.map { |col| [model.human_attribute_name(col), col] }
   end
 end

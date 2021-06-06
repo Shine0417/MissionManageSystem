@@ -1,4 +1,26 @@
 "zh-TW":
+  activerecord:
+    attributes:
+      mission:
+        title: "標題"
+        description: "內容"
+        due_date: "到期日"
+        created_at: "建立時間"
+        updated_at: "更新時間"
+        status: "狀態"
+        pending: "待處理"
+        in_progress: "進行中"
+        complete: "已完成"
+        priority: "優先度"
+        low: "低"
+        medium: "中"
+        high: "高"
+  notice:
+    create_mission: "新增任務成功!"
+    update_mission: "已更新任務!"
+    destroy_mission:  "刪除任務成功!"
+  admin:
+    event: 活動管理
   hello_world: 哈囉
   show: "檢視"
   edit: "編輯"
@@ -7,17 +29,10 @@
   destroy: "刪除"
   destroy_warning: "[警告]: 確認刪除?"
   new_mission: "新增任務"
-  title: "標題"
-  description: "內容"
   submit: "送出"
-  due_date: "到期日"
-  created_at: "建立時間"
   reverse: "反序" 
   sort_by: "排序以"
   not_set: "欄位空白"
-  notice:
-    create_mission: "新增任務成功!"
-    update_mission: "已更新任務!"
-    destroy_mission:  "刪除任務成功!"
-  admin:
-    event: 活動管理
+  enter_text: "請輸入文字..."
+  search: "搜尋"
+  all: "全部"

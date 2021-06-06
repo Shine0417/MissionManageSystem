@@ -1,4 +1,5 @@
 <%= @mission.title%>
 <%= @mission.description%>
+<%= mission_due_date(@mission.due_date) %>
 <%= link_to t('edit') , edit_mission_path(@mission)%>
 <%= link_to t('home') ,missions_path%>

@@ -2,7 +2,7 @@ class MissionsController < ApplicationController
   before_action :find_mission_by_id, only: %i[show edit update destroy]
 
   def index
-    @missions = Mission.all
+    @missions = Mission.order(sort)
   end
 
   def show; end
@@ -44,6 +44,18 @@ class MissionsController < ApplicationController
   end
 
   def mission_params
-    params.require(:mission).permit(:title, :description)
+    params.require(:mission).permit(:title, :description, :due_date)
+  end
+  
+  def sort_by
+    @sort_by = (Mission.column_names.include? params[:sort]) ? params[:sort] : 'created_at'
+  end
+
+  def sort_dir
+    @sort_dir = params[:reverse].nil? ? 'ASC' : 'DESC'
+  end
+
+  def sort
+    @sort = { sort_by => sort_dir }
   end
 end

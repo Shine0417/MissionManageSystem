@@ -1,0 +1,6 @@
+<%# param: controller: , model:  %>
+<%= form_tag({controller: controller, action: "index"}, method: :get) do %>
+  <%= text_field_tag :title, @search_title, placeholder: t('enter_text') , autofocus: true %>
+  <%= select_tag :status, options_for_select([[t('all'), "All"]] + translate(Mission.statuses.keys, Mission), @search_status) %>
+  <%= submit_tag t('search') , name: nil %>
+<% end %>

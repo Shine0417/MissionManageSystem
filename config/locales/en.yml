@@ -30,6 +30,22 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    attributes:
+      mission:
+        title: "Title"
+        description: "Description"
+        due_date: "Due_date"
+        created_at: "Create_date"
+        updated_at: "Updated_at"
+        status: "Status"
+        pending: "Pending"
+        in_progress: "In Progress"
+        complete: "Complete"
+  notice:
+    create_mission: "Created a new mission!"
+    update_mission: "mission updated!"
+    destroy_mission:  "Mission Destroyed"
   hello: "Hello world"
   show: "Show"
   edit: "Edit"
@@ -46,7 +62,5 @@ en:
   reverse: "reverse" 
   sort_by: "Sort by"
   not_set: "Not Set"
-  notice:
-    create_mission: "Created a new mission!"
-    update_mission: "mission updated!"
-    destroy_mission:  "Mission Destroyed"
+  enter_text: "Enter Text..."
+  search: "Search"

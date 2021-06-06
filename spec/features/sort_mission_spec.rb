@@ -8,18 +8,18 @@ RSpec.feature 'sort mission', type: :feature do
   scenario 'by default(create time)' do
     visit '/missions'
     within_table('mission_table') do
-      expect(page).to have_text /Atest.*Btest.*Ctest/
+      expect(page).to have_text /Atest[\s\S]*Btest[\s\S]*Ctest/
     end
   end
 
   scenario 'by due date reverse' do
     visit '/missions'
-    page.select 'due_date', from: 'sort'
+    page.select I18n.t('due_date'), from: 'sort'
     page.check('reverse')
     click_button I18n.t('submit')
 
     within_table('mission_table') do
-      expect(page).to have_text /Ctest.*Btest.*Atest/
+      expect(page).to have_text /Ctest[\s\S]*Btest[\s\S]*Atest/
     end
   end
 end

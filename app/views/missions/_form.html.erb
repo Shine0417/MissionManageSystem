@@ -7,5 +7,5 @@
   <%= f.text_field :description %>
   <%= f.label :due_date, t('due_date') %>
   <%= f.datetime_local_field :due_date %>
-  <%= f.submit t('submit')%>
+  <%= f.submit t('submit'), name: nil %>
 <% end %>

@@ -12,10 +12,10 @@
 <div class="row">
   <table id="mission_table" class="table">
     <thead>
-      <th width="100px" class="text-start"><%= t('activerecord.attributes.mission.title') %></th>
-      <th width="45px" class="text-center"><%= t('activerecord.attributes.mission.due_date') %></th>
-      <th width="40px" class="text-center"><%= t('activerecord.attributes.mission.status') %></th>
-      <th width="25px" class="text-center"><%= t('activerecord.attributes.mission.priority') %></th>
+      <th width="100px" class="text-start"><%= t('mission.title') %></th>
+      <th width="45px" class="text-center"><%= t('mission.due_date') %></th>
+      <th width="40px" class="text-center"><%= t('mission.status') %></th>
+      <th width="25px" class="text-center"><%= t('mission.priority') %></th>
       <th width="90px" class="text-center"><%= t('option') %></th>
     </thead>
     <tbody>
@@ -23,8 +23,8 @@
         <tr id="tr_<%= mission[:id] %>">
           <td class="text-start overflow-hidden"><%= mission.title %></td>
           <td class="text-nowrap"><%= mission_due_date(mission.due_date) %></td>
-          <td><%= render "status_form", mission: mission, redirect: :back %></td>
-          <td><%= Mission.human_attribute_name(mission.priority) %></td>
+          <td><%= render "status_form", mission: mission %></td>
+          <td><%= t("mission.priorities.#{mission.priority}") %></td>
           <td>
             <%= link_to t('show') , mission_path(mission), class: "btn btn-light" %>
             <%= link_to t('edit') , edit_mission_path(mission), class: "btn btn-light"%>

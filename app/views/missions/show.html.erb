@@ -1,6 +1,6 @@
 <div >
   <div class="row-show">
-    <h2><%= @mission.title%> <span class="badge rounded-pill bg-primary"><%=  Mission.human_attribute_name(@mission.priority)%></span></h2>
+    <h2><%= @mission.title%> <span class="badge rounded-pill bg-primary"><%=  t("mission.priorities.#{@mission.priority}") %></span></h2>
   </div>
   <div class="row-show">
     <p>
@@ -9,7 +9,7 @@
   </div>
   <div class="row-show">
     <%= mission_due_date(@mission.due_date) %>
-    <%= render "status_form", mission: @mission, redirect: :show %>
+    <%= render "status_form", mission: @mission %>
   </div>
   <div class="row-show">
     <%= link_to t('edit') , edit_mission_path(@mission), class: "btn btn-outline-secondary"%>

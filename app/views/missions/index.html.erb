@@ -12,7 +12,7 @@
       <tr id="tr_<%= mission[:id] %>">
         <td><%= mission.title %></td>
         <td><%= mission_due_date(mission.due_date) %></td>
-        <td><%= render "status_form", mission: mission, redirect: :index %></td>
+        <td><%= render "status_form", mission: mission %></td>
         <td><%= t("mission.priorities.#{mission.priority}") %></td>
         <td>
           <%= link_to t('show') , mission_path(mission) %>

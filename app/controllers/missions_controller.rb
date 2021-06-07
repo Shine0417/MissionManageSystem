@@ -2,13 +2,7 @@ class MissionsController < ApplicationController
   before_action :find_mission_by_id, only: %i[show edit update destroy]
 
   def index
-    @missions = Mission.all.order(sort)
-
-    @missions = @missions.where('title like ?', @search_title).order(sort) if search_title
-
-    @missions = @missions.where({ status: Mission.statuses[@search_status] }).order(sort) if search_status
-
-    @missions = @missions.page(params[:page])
+    @missions = Mission.title_like(search_title).status(search_status).order(sort).page(params[:page])
   end
 
   def show; end
@@ -70,12 +64,10 @@ class MissionsController < ApplicationController
   end
 
   def search_title
-    @search_title = params[:title] if params[:title].present?
+    @search_title ||= (params[:title] || '')
   end
 
   def search_status
-    if params[:status].present? && (Mission.statuses.keys.include? params[:status])
-      @search_status = params[:status]
-    end
+    @search_status ||= (params[:status] || 'All')
   end
 end

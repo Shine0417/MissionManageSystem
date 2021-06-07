@@ -1,8 +1,12 @@
 <%= render "err", object: @mission %>
 <%= bootstrap_form_for @mission, layout: :horizontal, label_col: "col-sm-2 text-end", control_col: "col-sm-10 mb-2" do |f|%>
+  <%= f.label :title, t('mission.title')%>
   <%= f.text_field :title, autofocus: true %>
+  <%= f.label :description, t('mission.description')%>
   <%= f.text_area :description , size: '50x10'%>
+  <%= f.label :due_date, t('mission.due_date') %>
   <%= f.datetime_local_field :due_date%>
-  <%= f.select :priority, options_for_select(translate(Mission.priorities.keys, Mission), 0),{class: "btn btn-outline-secondary dropdown-toggle"}%>
+  <%= f.label :priority, t('mission.priority') %>
+  <%= f.select :priority, options_for_select(Mission.priorities.keys.map{|pr| [t("mission.priorities.#{pr}"), pr] }, @mission.priority),{class: "btn btn-outline-secondary dropdown-toggle"}%>
   <%= f.submit t('submit'), name: nil, class: "btn btn-primary float-sm-end" %>
 <% end %>

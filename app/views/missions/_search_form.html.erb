@@ -7,12 +7,12 @@
   </div>
 
   <div class="col-auto">
-    <%= select_tag :status, options_for_select([[t('all'), "All"]] + translate(Mission.statuses.keys, Mission), @search_status), class: "btn btn-outline-secondary dropdown-toggle" %>
+    <%= select_tag :status, options_for_select([[t('all'), "All"]] + model.statuses.keys.map{|stat| [t("mission.statuses.#{stat}"), stat] }, @search_status), class: "btn btn-outline-secondary dropdown-toggle" %>
   </div>
 
   <div class="col-auto">
     <%= label_tag :sort, t('sort_by') %>
-    <%= select_tag :sort, options_for_select(translate(model.column_names, model), @sort_by), class: "btn btn-outline-secondary dropdown-toggle" %>
+    <%= select_tag :sort, options_for_select(model.column_names.map{|col| [t("mission.#{col}"), col]}, @sort_by), class: "btn btn-outline-secondary dropdown-toggle" %>
   
     <%= check_box_tag :reverse, "DESC", (@sort_dir == 'DESC'), class: "btn-check" %>
     <%= label_tag :reverse, t('reverse'), class: "btn btn-outline-secondary" %>

@@ -30,22 +30,22 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  activerecord:
-    attributes:
-      mission:
-        title: "Title"
-        description: "Description"
-        due_date: "Due_date"
-        created_at: "Create_date"
-        updated_at: "Updated_at"
-        status: "Status"
-        pending: "Pending"
-        in_progress: "In Progress"
-        complete: "Complete"
-        priority: "Priority"
-        low: "Low"
-        medium: "Medium"
-        high: "High"
+  mission:
+    title: "Title"
+    description: "Description"
+    due_date: "Due_date"
+    created_at: "Create_date"
+    updated_at: "Updated_at"
+    status: "Status"
+    priority: "Priority"
+    statuses:
+      pending: "Pending"
+      in_progress: "In Progress"
+      complete: "Complete"
+    priorities:
+      low: "Low"
+      medium: "Medium"
+      high: "High"
   notice:
     create_mission: "Created a new mission!"
     update_mission: "mission updated!"
@@ -79,7 +79,7 @@ en:
   submit: "Submit"
   due_date: "Due_date"
   created_at: "Create_date"
-  reverse: "reverse" 
+  reverse: "reverse"
   sort_by: "Sort by"
   not_set: "Not Set"
   enter_text: "Enter Text..."

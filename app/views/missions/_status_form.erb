@@ -1,4 +1,4 @@
 <%= form_for mission do |f|%>
-  <%= hidden_field_tag :redirect, redirect %>  
-  <%= f.select :status, options_for_select(translate(Mission.statuses.keys, Mission), mission.status), {}, :onchange => "this.form.submit()" %>
+  <%= hidden_field_tag :redirect, redirect %>
+  <%= f.select :status, options_for_select(Mission.statuses.keys.map{|stat| [t("mission.statuses.#{stat}"), stat] }, mission.status), {}, :onchange => "this.form.submit()" %>
 <% end %>

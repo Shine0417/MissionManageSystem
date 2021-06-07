@@ -14,7 +14,7 @@ RSpec.feature 'sort mission', type: :feature do
 
   scenario 'by due date reverse' do
     visit '/missions'
-    page.select I18n.t('activerecord.attributes.mission.due_date'), from: 'sort'
+    page.select I18n.t('mission.due_date'), from: 'sort'
     page.check('reverse')
     click_button I18n.t('search')
 
@@ -26,7 +26,7 @@ RSpec.feature 'sort mission', type: :feature do
   scenario 'by priority' do
     visit '/missions'
 
-    page.select I18n.t('activerecord.attributes.mission.priority'), from: 'sort'
+    page.select I18n.t('mission.priority'), from: 'sort'
     click_button I18n.t('search')
 
     within_table('mission_table') do

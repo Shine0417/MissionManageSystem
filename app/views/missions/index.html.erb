@@ -1,10 +1,10 @@
 <%= render "search_form", controller: :missions, model: Mission %>
 <table id="mission_table">
   <thead>
-    <th><%= t('activerecord.attributes.mission.title') %></th>
-    <th><%= t('activerecord.attributes.mission.due_date') %></th>
-    <th><%= t('activerecord.attributes.mission.status') %></th>
-    <th><%= t('activerecord.attributes.mission.priority') %></th>
+    <th><%= t('mission.title') %></th>
+    <th><%= t('mission.due_date') %></th>
+    <th><%= t('mission.status') %></th>
+    <th><%= t('mission.priority') %></th>
     <th><%= t('option') %></th>
   </thead>
   <tbody>
@@ -13,7 +13,7 @@
         <td><%= mission.title %></td>
         <td><%= mission_due_date(mission.due_date) %></td>
         <td><%= render "status_form", mission: mission, redirect: :index %></td>
-        <td><%= Mission.human_attribute_name(mission.priority) %></td>
+        <td><%= t("mission.priorities.#{mission.priority}") %></td>
         <td>
           <%= link_to t('show') , mission_path(mission) %>
           <%= link_to t('edit') , edit_mission_path(mission)%>

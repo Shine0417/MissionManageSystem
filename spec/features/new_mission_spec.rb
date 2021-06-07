@@ -7,8 +7,8 @@ RSpec.feature 'new mission', type: :feature do
     visit '/missions'
     click_link(I18n.t(:new_mission))
 
-    fill_in I18n.t('activerecord.attributes.mission.title'), with: test_mission[:title]
-    fill_in I18n.t('activerecord.attributes.mission.description'), with: test_mission[:description]
+    fill_in I18n.t('mission.title'), with: test_mission[:title]
+    fill_in I18n.t('mission.description'), with: test_mission[:description]
 
     click_button(I18n.t(:submit))
 

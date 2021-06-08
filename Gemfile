@@ -25,7 +25,15 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Add localization
+
 gem "rails-i18n"
+
+# Add pagination
+
+gem 'kaminari'
+
+gem "bootstrap_form", "~> 4.0"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

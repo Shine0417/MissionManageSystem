@@ -4,8 +4,6 @@ language: ruby
 dist: xenial
 rvm:
 - 3.0.1
-node_js:
-- 10.17.0
 cache:
   bundler: true
 services:
@@ -13,7 +11,7 @@ services:
 install:
   - bundle install
   - npm install yarn
-  - yarn
+  - yarn install --ignore-engines
 
 addons:
   chrome: stable

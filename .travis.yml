@@ -4,6 +4,8 @@ language: ruby
 dist: xenial
 rvm:
 - 3.0.1
+node_js:
+- 10.17.0
 cache:
   bundler: true
 services:

@@ -20,6 +20,7 @@ rails db:create db:migrate db:seed
 
 * Start the app
 ```
+rails webpacker:install
 bundle exec rails server
 ```
 * How to run the test suite

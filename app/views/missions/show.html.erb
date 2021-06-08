@@ -1,5 +1,7 @@
 <%= @mission.title%>
 <%= @mission.description%>
 <%= mission_due_date(@mission.due_date) %>
+<%= render "status_form", mission: @mission %>
+<%= t("mission.priorities.#{@mission.priority}") %>
 <%= link_to t('edit') , edit_mission_path(@mission)%>
 <%= link_to t('home') ,missions_path%>

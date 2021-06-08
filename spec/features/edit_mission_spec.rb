@@ -7,8 +7,8 @@ RSpec.feature 'edit mission', type: :feature do
     visit '/missions'
     click_link(I18n.t(:edit))
 
-    fill_in I18n.t(:title), with: 'Test title 2'
-    fill_in I18n.t(:description), with: 'Hello World 2'
+    fill_in I18n.t('mission.title'), with: 'Test title 2'
+    fill_in I18n.t('mission.description'), with: 'Hello World 2'
 
     click_button(I18n.t(:submit))
 

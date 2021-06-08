@@ -7,6 +7,8 @@ class MissionsController < ApplicationController
     @missions = @missions.where('title like ?', @search_title).order(sort) if search_title
 
     @missions = @missions.where({ status: Mission.statuses[@search_status] }).order(sort) if search_status
+
+    @missions = @missions.page(params[:page])
   end
 
   def show; end

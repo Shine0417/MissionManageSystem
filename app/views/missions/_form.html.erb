@@ -1,14 +1,8 @@
 <%= render "err", object: @mission %>
-
-<%= form_for @mission do |f|%>
-  <%= f.label :title, t('activerecord.attributes.mission.title')%>
+<%= bootstrap_form_for @mission, layout: :horizontal, label_col: "col-sm-2 text-end", control_col: "col-sm-10 mb-2" do |f|%>
   <%= f.text_field :title, autofocus: true %>
-  <%= f.label :description, t('activerecord.attributes.mission.description')%>
-  <%= f.text_field :description %>
-  <%= f.label :due_date, t('activerecord.attributes.mission.due_date') %>
-  <%= f.datetime_local_field :due_date %>
-  <%= f.label :priority, t('activerecord.attributes.mission.priority') %>
-  <%= f.select :priority, options_for_select(translate(Mission.priorities.keys, Mission), 0) %>
-
-  <%= f.submit t('submit'), name: nil %>
+  <%= f.text_area :description , size: '50x10'%>
+  <%= f.datetime_local_field :due_date%>
+  <%= f.select :priority, options_for_select(translate(Mission.priorities.keys, Mission), 0),{class: "btn btn-outline-secondary dropdown-toggle"}%>
+  <%= f.submit t('submit'), name: nil, class: "btn btn-primary float-sm-end" %>
 <% end %>

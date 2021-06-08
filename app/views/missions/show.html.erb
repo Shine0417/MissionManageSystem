@@ -1,8 +1,18 @@
-<%= @mission.title%>
-<%= @mission.description%>
-<%= mission_due_date(@mission.due_date) %>
-<%= render "status_form", mission: @mission, redirect: :show %>
-<%= Mission.human_attribute_name(@mission.priority) %>
-
-<%= link_to t('edit') , edit_mission_path(@mission)%>
-<%= link_to t('home') ,missions_path%>
+<div >
+  <div class="row-show">
+    <h2><%= @mission.title%> <span class="badge rounded-pill bg-primary"><%=  Mission.human_attribute_name(@mission.priority)%></span></h2>
+  </div>
+  <div class="row-show">
+    <p>
+      <%= @mission.description%>
+    </p>
+  </div>
+  <div class="row-show">
+    <%= mission_due_date(@mission.due_date) %>
+    <%= render "status_form", mission: @mission, redirect: :show %>
+  </div>
+  <div class="row-show">
+    <%= link_to t('edit') , edit_mission_path(@mission), class: "btn btn-outline-secondary"%>
+    <%= link_to t('home') ,missions_path, class: "btn btn-outline-secondary"%>
+  </div>
+</div>

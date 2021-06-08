@@ -12,4 +12,36 @@
  *
  *= require_tree .
  *= require_self
+ *= require rails_bootstrap_forms
  */
+
+@import "bootstrap/scss/bootstrap";
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 900px;
+    margin: auto;
+}
+
+.row {
+    width: 800px;
+}
+
+.row-show {
+    width: 600px;
+    margin-bottom: 10px;
+}
+
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+td {
+    vertical-align: middle;
+    text-align: center;
+    justify-content: center;
+}

@@ -1,27 +1,41 @@
-<%= render "search_form", controller: :missions, model: Mission %>
-<table id="mission_table">
-  <thead>
-    <th><%= t('activerecord.attributes.mission.title') %></th>
-    <th><%= t('activerecord.attributes.mission.due_date') %></th>
-    <th><%= t('activerecord.attributes.mission.status') %></th>
-    <th><%= t('activerecord.attributes.mission.priority') %></th>
-    <th><%= t('option') %></th>
-  </thead>
-  <tbody>
-    <% @missions.each do |mission|%>
-      <tr id="tr_<%= mission[:id] %>">
-        <td><%= mission.title %></td>
-        <td><%= mission_due_date(mission.due_date) %></td>
-        <td><%= render "status_form", mission: mission, redirect: :index %></td>
-        <td><%= Mission.human_attribute_name(mission.priority) %></td>
-        <td>
-          <%= link_to t('show') , mission_path(mission) %>
-          <%= link_to t('edit') , edit_mission_path(mission)%>
-          <%= link_to t('destroy') , mission_path(mission), method: :delete,
-                                        data:{confirm: t("destroy_warning") }%>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to t('new_mission') , new_mission_path%>
+<div class="row">
+  <%= render "search_form", controller: :missions, model: Mission %>
+</div>
+<div class="row">
+  <div class="col-sm-5">
+    <%= page_entries_info(@missions).html_safe %>
+  </div>
+  <div class="col-sm-5">
+    <%= paginate @missions%>
+  </div>
+</div>
+<div class="row">
+  <table id="mission_table" class="table">
+    <thead>
+      <th width="100px" class="text-start"><%= t('activerecord.attributes.mission.title') %></th>
+      <th width="45px" class="text-center"><%= t('activerecord.attributes.mission.due_date') %></th>
+      <th width="40px" class="text-center"><%= t('activerecord.attributes.mission.status') %></th>
+      <th width="25px" class="text-center"><%= t('activerecord.attributes.mission.priority') %></th>
+      <th width="90px" class="text-center"><%= t('option') %></th>
+    </thead>
+    <tbody>
+      <% @missions.each do |mission|%>
+        <tr id="tr_<%= mission[:id] %>">
+          <td class="text-start overflow-hidden"><%= mission.title %></td>
+          <td class="text-nowrap"><%= mission_due_date(mission.due_date) %></td>
+          <td><%= render "status_form", mission: mission, redirect: :back %></td>
+          <td><%= Mission.human_attribute_name(mission.priority) %></td>
+          <td>
+            <%= link_to t('show') , mission_path(mission), class: "btn btn-light" %>
+            <%= link_to t('edit') , edit_mission_path(mission), class: "btn btn-light"%>
+            <%= link_to t('destroy') , mission_path(mission), method: :delete,
+                                        data:{confirm: t("destroy_warning") }, class: "btn btn-danger"%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <%= link_to t('new_mission') , new_mission_path, class: "btn btn-primary"%>
+</div>

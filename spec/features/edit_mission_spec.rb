@@ -12,6 +12,6 @@ RSpec.feature 'edit mission', type: :feature do
 
     click_button(I18n.t(:submit))
 
-    expect(page).to have_text /#{I18n.t(:update_mission, scope: :notice)}\n.*Test\ title\ 2.*Hello\ World\ 2/
+    expect(page).to have_text /#{I18n.t(:update_mission, scope: :notice)}[\s\S]*Test title 2[\s\S]*Hello World 2/
   end
 end

@@ -3,7 +3,7 @@ module MissionsHelper
         if due_date.nil?
             I18n.t('not_set')
         else
-            due_date
+            due_date.strftime("%m/%d %H:%M")
         end
     end
 end

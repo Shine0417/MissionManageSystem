@@ -1,12 +1,25 @@
 <%# param: controller: , model:  %>
-<%= form_tag({controller: controller, action: "index"}, method: :get) do %>
-  <%= text_field_tag :title, @search_title, placeholder: t('enter_text') , autofocus: true %>
-  <%= select_tag :status, options_for_select([[t('all'), "All"]] + translate(Mission.statuses.keys, Mission), @search_status) %>
+
+<%= form_tag({controller: controller, action: "index"}, method: :get, class: "row") do %>
+
+  <div class="col-auto">
+    <%= text_field_tag :title, @search_title, placeholder: t('enter_text') , autofocus: true , class: "form-control"%>
+  </div>
+
+  <div class="col-auto">
+    <%= select_tag :status, options_for_select([[t('all'), "All"]] + translate(Mission.statuses.keys, Mission), @search_status), class: "btn btn-outline-secondary dropdown-toggle" %>
+  </div>
+
+  <div class="col-auto">
+    <%= label_tag :sort, t('sort_by') %>
+    <%= select_tag :sort, options_for_select(translate(model.column_names, model), @sort_by), class: "btn btn-outline-secondary dropdown-toggle" %>
   
-  <%= label_tag :sort, t('sort_by') %>
-  <%= select_tag :sort, options_for_select(translate(model.column_names, model), @sort_by) %>
-  <%= check_box_tag :reverse, "DESC", (@sort_dir == 'DESC') %>
-  <%= label_tag :reverse, t('reverse') %>
+    <%= check_box_tag :reverse, "DESC", (@sort_dir == 'DESC'), class: "btn-check" %>
+    <%= label_tag :reverse, t('reverse'), class: "btn btn-outline-secondary" %>
+  </div>
+
+  <div class="col-auto">
+    <%= submit_tag t('search') , name: nil, class: "btn btn-primary mb-3" %>
+  </div>
   
-  <%= submit_tag t('search') , name: nil %>
 <% end %>

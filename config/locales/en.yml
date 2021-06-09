@@ -66,6 +66,7 @@ en:
           other: "Displaying <b>all %{count}</b> %{entry_name}"
       more_pages:
         display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+  mission_management_system: "Mission Management System"
   hello: "Hello world"
   show: "Show"
   edit: "Edit"

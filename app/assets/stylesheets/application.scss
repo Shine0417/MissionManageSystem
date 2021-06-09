@@ -15,8 +15,12 @@
  *= require rails_bootstrap_forms
  */
 
+// Configuration
+@import "bootstrap/scss/functions";
+// variable override
+$primary: #6610f2;
 @import "bootstrap/scss/bootstrap";
-.container {
+.mission-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,22 +30,40 @@
     margin: auto;
 }
 
-.row {
-    width: 800px;
+.index-body-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.row-show {
-    width: 600px;
-    margin-bottom: 10px;
+.index-body-header-paginate {
+    display: flex;
+    flex-direction: row;
 }
 
-table {
+.index-body-table {
     table-layout: fixed;
     word-wrap: break-word;
 }
 
-td {
+.index-body-table tr {
+    width: 800px;
+    max-height: 50px;
+}
+
+.index-body-table th {
     vertical-align: middle;
     text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
 }

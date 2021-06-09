@@ -11,7 +11,7 @@
       <%= paginate @missions, class: "pagination m-2"%>
     </div>
   </div>
-  <table class="table index-body-table">
+  <table class="table index-body-table" id="mission_table">
     <thead>
       <th width="100px" class="text-start text-nowrap"><%= t('mission.title') %></th>
       <th><%= t('mission.due_date') %></th>

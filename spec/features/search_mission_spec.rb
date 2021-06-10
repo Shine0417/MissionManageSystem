@@ -17,7 +17,7 @@ RSpec.feature 'search mission', type: :feature do
   scenario 'search status' do
     visit '/missions'
 
-    page.select I18n.t('mission.statuses.in_progress'), from: :status
+    page.select I18n.t('activerecord.attributes.mission.statuses.in_progress'), from: :status
     click_button I18n.t('search')
 
     expect(page).not_to have_text 'Atest'
@@ -26,7 +26,7 @@ RSpec.feature 'search mission', type: :feature do
 
   scenario 'search empty' do
     visit '/missions'
-    page.select I18n.t('mission.statuses.complete'), from: :status
+    page.select I18n.t('activerecord.attributes.mission.statuses.complete'), from: :status
     click_button I18n.t('search')
 
     expect(page).not_to have_text 'Atest'

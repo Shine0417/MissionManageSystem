@@ -2,7 +2,7 @@
   <td class="text-start overflow-hidden"><%= mission.title %></td>
   <td class="text-nowrap"><%= mission_due_date(mission.due_date) %></td>
   <td><%= render "status_form", mission: mission %></td>
-  <td><%= t("mission.priorities.#{mission.priority}") %></td>
+  <td><%= t("activerecord.attributes.mission.priorities.#{mission.priority}") %></td>
   <td>
     <%= link_to t('show') , mission_path(mission), class: "btn btn-light" %>
     <%= link_to t('edit') , edit_mission_path(mission), class: "btn btn-light"%>

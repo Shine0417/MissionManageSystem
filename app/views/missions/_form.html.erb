@@ -1,4 +1,4 @@
-<%= render "err", object: @mission %>
+<%= render "components/err", object: @mission %>
 <%= bootstrap_form_for @mission, layout: :horizontal, label_col: "col-sm-2 text-end", control_col: "col-sm-10 mb-2" do |f|%>
   <%= f.text_field :title, autofocus: true%>
   <%= f.text_area :description , size: '50x10'%>

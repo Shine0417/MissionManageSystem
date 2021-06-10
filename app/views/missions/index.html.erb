@@ -1,27 +1,30 @@
-<%= render "search_form", controller: :missions, model: Mission %>
-<table id="mission_table">
-  <thead>
-    <th><%= t('mission.title') %></th>
-    <th><%= t('mission.due_date') %></th>
-    <th><%= t('mission.status') %></th>
-    <th><%= t('mission.priority') %></th>
-    <th><%= t('option') %></th>
-  </thead>
-  <tbody>
-    <% @missions.each do |mission|%>
-      <tr id="tr_<%= mission[:id] %>">
-        <td><%= mission.title %></td>
-        <td><%= mission_due_date(mission.due_date) %></td>
-        <td><%= render "status_form", mission: mission %></td>
-        <td><%= t("mission.priorities.#{mission.priority}") %></td>
-        <td>
-          <%= link_to t('show') , mission_path(mission) %>
-          <%= link_to t('edit') , edit_mission_path(mission)%>
-          <%= link_to t('destroy') , mission_path(mission), method: :delete,
-                                        data:{confirm: t("destroy_warning") }%>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to t('new_mission') , new_mission_path%>
+<header class="index-header">
+  <h2><i class="col bi bi-list-stars"></i><%= t('mission_management_system') %></h2>
+</header>
+<div class="index-body">
+  <div class="index-body-header">
+    <%= render "search_form", controller: :missions, model: Mission%>
+    <div class="index-body-header-paginate m-1">
+      <p class="m-2">
+        <%= page_entries_info(@missions).html_safe %>
+      </p>
+      <%= paginate @missions, class: "pagination m-2"%>
+    </div>
+  </div>
+  <table class="table index-body-table" id="mission_table">
+    <thead>
+      <th width="100px" class="text-start text-nowrap"><%= t('activerecord.attributes.mission.title') %></th>
+      <th><%= t('activerecord.attributes.mission.due_date') %></th>
+      <th><%= t('activerecord.attributes.mission.status') %></th>
+      <th><%= t('activerecord.attributes.mission.priority') %></th>
+      <th><%= t('option') %></th>
+    </thead>
+    <tbody>
+      <%= render partial: "mission", collection: @missions %>
+    </tbody>
+  </table>
+  <div class="index-body-footer">
+    <i class="bi bi-clipboard-plus"></i>
+    <%= link_to t('new_mission') , new_mission_path, class: "btn btn-outline-primary"%>
+  </div>
+</div>

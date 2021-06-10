@@ -7,6 +7,6 @@ RSpec.feature 'show mission', type: :feature do
     visit '/missions'
     
     click_link(I18n.t(:show))
-    expect(page).to have_text /Test\ title.*Hello\ World/
+    expect(page).to have_text /Test title[\s\S]*Hello World/
   end
 end

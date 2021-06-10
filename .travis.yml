@@ -10,6 +10,8 @@ services:
   - postgresql
 install:
   - bundle install
+  - npm install yarn
+  - yarn install --ignore-engines
 
 addons:
   chrome: stable

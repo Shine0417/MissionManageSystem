@@ -2,7 +2,7 @@ class MissionsController < ApplicationController
   before_action :find_mission_by_id, only: %i[show edit update destroy]
 
   def index
-    @missions = Mission.title_like(search_title).status(search_status).order(sort)
+    @missions = Mission.title_like(search_title).status(search_status).order(sort).page(params[:page])
   end
 
   def show; end

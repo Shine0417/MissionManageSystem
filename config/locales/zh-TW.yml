@@ -1,26 +1,45 @@
 "zh-TW":
-  mission:
-    title: "標題"
-    description: "內容"
-    due_date: "到期日"
-    created_at: "建立時間"
-    updated_at: "更新時間"
-    status: "狀態"
-    priority: "優先度"
-    statuses:
-      pending: "待處理"
-      in_progress: "進行中"
-      complete: "已完成"
-    priorities:
-      low: "低"
-      medium: "中"
-      high: "高"
+  activerecord:
+    attributes:
+      mission:
+        title: "標題"
+        description: "內容"
+        due_date: "到期日"
+        created_at: "建立時間"
+        updated_at: "更新時間"
+        status: "狀態"
+        priority: "優先度"
+        statuses:
+          pending: "待處理"
+          in_progress: "進行中"
+          complete: "已完成"
+        priorities:
+          low: "低"
+          medium: "中"
+          high: "高"
   notice:
     create_mission: "新增任務成功!"
     update_mission: "已更新任務!"
     destroy_mission:  "刪除任務成功!"
   admin:
     event: 活動管理
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "顯示 <b>%{first}&nbsp;-&nbsp;%{last}</b> 筆 %{entry_name}，共 <b>%{total}</b> 筆"
+      one_page:
+        display_entries:
+          one: "只有 <b>一</b> 筆 %{entry_name}"
+          other: "顯示 <b>所有 %{count}</b> 筆 %{entry_name}"
+          zero: "找不到 %{entry_name}"
+  views:
+    pagination:
+      first: "&laquo; 首頁"
+      last: "末頁 &raquo;"
+      next: "下一頁 &rsaquo;"
+      previous: "&lsaquo; 上一頁"
+      truncate: "&hellip;"
+  mission_management_system: "任務管理系統"
   hello_world: 哈囉
   show: "檢視"
   edit: "編輯"

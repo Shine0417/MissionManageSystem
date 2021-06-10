@@ -1,10 +1,18 @@
 <%# param: controller: , model:  %>
-<%= form_tag({controller: controller, action: "index"}, method: :get) do %>
-  <%= text_field_tag :title, @search_title, placeholder: t('enter_text') , autofocus: true %>
-  <%= select_tag :status, options_for_select([[t('all'), "All"]] + model.statuses.keys.map{|stat| [t("mission.statuses.#{stat}"), stat] } , @search_status) %>
-  <%= label_tag :sort, t('sort_by') %>
-  <%= select_tag :sort, options_for_select(model.column_names.map{|col| [t("mission.#{col}"), col]}, @sort_by) %>
-  <%= check_box_tag :reverse, "DESC", (@sort_dir == 'DESC') %>
-  <%= label_tag :reverse, t('reverse') %>
-  <%= submit_tag t('search') , name: nil %>
+<%= form_tag({controller: controller, action: "index"}, method: :get, class: "row search-form mb-1") do %>
+  <div class="col-auto">
+    <%= text_field_tag :title, @search_title, placeholder: t('enter_text') , autofocus: true , class: "form-control"%>
+  </div>
+  <div class="col-auto">
+    <%= select_tag :status, options_for_select([[t('all'), "All"]] + model.statuses.keys.map{|stat| [t("activerecord.attributes.mission.statuses.#{stat}"), stat] }, @search_status), class: "btn btn-outline-secondary dropdown-toggle" %>
+  </div>
+  <div class="col-auto">
+    <%= label_tag :sort, t('sort_by') %>
+    <%= select_tag :sort, options_for_select(model.column_names.map{|col| [t("activerecord.attributes.mission.#{col}"), col]}, @sort_by), class: "btn btn-outline-secondary dropdown-toggle" %>
+    <%= check_box_tag :reverse, "DESC", (@sort_dir == 'DESC'), class: "btn-check" %>
+    <%= label_tag :reverse, t('reverse'), class: "btn btn-outline-secondary" %>
+  </div>
+  <div class="col-auto">
+    <%= submit_tag t('search') , name: nil, class: "btn btn-primary " %>
+  </div>
 <% end %>

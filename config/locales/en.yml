@@ -30,26 +30,45 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  mission:
-    title: "Title"
-    description: "Description"
-    due_date: "Due_date"
-    created_at: "Create_date"
-    updated_at: "Updated_at"
-    status: "Status"
-    priority: "Priority"
-    statuses:
-      pending: "Pending"
-      in_progress: "In Progress"
-      complete: "Complete"
-    priorities:
-      low: "Low"
-      medium: "Medium"
-      high: "High"
+  activerecord:
+    attributes:
+      mission:
+        title: "Title"
+        description: "Description"
+        due_date: "Due_date"
+        created_at: "Create_date"
+        updated_at: "Updated_at"
+        status: "Status"
+        priority: "Priority"
+        statuses:
+          pending: "Pending"
+          in_progress: "In Progress"
+          complete: "Complete"
+        priorities:
+          low: "Low"
+          medium: "Medium"
+          high: "High"
   notice:
     create_mission: "Created a new mission!"
     update_mission: "mission updated!"
     destroy_mission:  "Mission Destroyed"
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+  mission_management_system: "Mission Management System"
   hello: "Hello world"
   show: "Show"
   edit: "Edit"

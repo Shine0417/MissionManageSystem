@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require rails_bootstrap_forms
+ */
+
+// Configuration
+@import "bootstrap/scss/functions";
+// variable override
+$primary: #6610f2;
+@import "bootstrap/scss/bootstrap";
+.mission-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 900px;
+    margin: auto;
+}
+
+.index-body-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.index-body-header-paginate {
+    display: flex;
+    flex-direction: row;
+}
+
+.index-body-table {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.index-body-table tr {
+    width: 800px;
+    max-height: 50px;
+}
+
+.index-body-table th {
+    vertical-align: middle;
+    text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

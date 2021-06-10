@@ -1,7 +1,24 @@
-<%= @mission.title%>
-<%= @mission.description%>
-<%= mission_due_date(@mission.due_date) %>
-<%= render "status_form", mission: @mission %>
-<%= t("mission.priorities.#{@mission.priority}") %>
-<%= link_to t('edit') , edit_mission_path(@mission)%>
-<%= link_to t('home') ,missions_path%>
+<div>
+  <header class="show-header">
+    <h2>
+      <i class="bi bi-clipboard"></i>
+      <%= @mission.title%> 
+      <span class="badge rounded-pill bg-primary">
+        <%=  t("activerecord.attributes.mission.priorities.#{@mission.priority}") %>
+      </span>
+    </h2>
+  </header>
+</div>
+<div>
+  <p>
+    <%= @mission.description%>
+  </p>
+</div>
+<div>
+  <%= mission_due_date(@mission.due_date) %>
+  <%= render "status_form", mission: @mission %>
+</div>
+<div>
+  <%= link_to t('edit') , edit_mission_path(@mission), class: "btn btn-outline-secondary"%>
+  <%= link_to t('home') ,missions_path, class: "btn btn-outline-secondary"%>
+</div>

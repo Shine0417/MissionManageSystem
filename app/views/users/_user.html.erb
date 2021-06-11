@@ -1,0 +1,9 @@
+<tr id="tr_<%= user.id %>">
+  <td class="text-start overflow-hidden"><%= user.username %></td>
+  <td>
+    <%= link_to t('show') , user_path(user), class: "btn btn-light" %>
+    <%= link_to t('edit') , edit_user_path(user), class: "btn btn-light"%>
+    <%= link_to t('destroy') , user_path(user), method: :delete,
+                                        data:{confirm: t("destroy_warning") }, class: "btn btn-danger"%>
+  </td>
+</tr>

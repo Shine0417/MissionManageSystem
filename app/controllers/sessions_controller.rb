@@ -1,0 +1,25 @@
+class SessionsController < ApplicationController
+  skip_before_action :check_login, only: %w[create new]
+
+  def new; end
+
+  def create
+    if login_success
+      redirect_to missions_url, notice: I18n.t('login_success')
+    else
+      redirect_to root_url, notice: I18n.t('wrong_name_or_password')
+    end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_url, notice: I18n.t('logout')
+  end
+
+  private
+
+  def login_success
+    user = User.find_by(username: params[:username])
+    session[:user_id] = user.id if user.present? && user.authenticate(params[:password])
+  end
+end

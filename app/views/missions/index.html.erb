@@ -1,6 +1,4 @@
-<header class="index-header">
-  <h2><i class="col bi bi-list-stars"></i><%= t('mission_management_system') %></h2>
-</header>
+<%= render "components/header", text: t('mission_table')%>
 <div class="index-body">
   <div class="index-body-header">
     <%= render "search_form", controller: :missions, model: Mission%>
@@ -13,11 +11,11 @@
   </div>
   <table class="table index-body-table" id="mission_table">
     <thead>
-      <th width="100px" class="text-start text-nowrap"><%= t('activerecord.attributes.mission.title') %></th>
-      <th><%= t('activerecord.attributes.mission.due_date') %></th>
-      <th><%= t('activerecord.attributes.mission.status') %></th>
-      <th><%= t('activerecord.attributes.mission.priority') %></th>
-      <th><%= t('option') %></th>
+      <th width="180px" class="text-start text-nowrap"><%= t('activerecord.attributes.mission.title') %></th>
+      <th width="80px"><%= t('activerecord.attributes.mission.due_date') %></th>
+      <th width="80px"><%= t('activerecord.attributes.mission.status') %></th>
+      <th width="70px"><%= t('activerecord.attributes.mission.priority') %></th>
+      <th width="180px"><%= t('option') %></th>
     </thead>
     <tbody>
       <%= render partial: "mission", collection: @missions %>

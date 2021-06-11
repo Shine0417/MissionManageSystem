@@ -2,7 +2,8 @@ class MissionsController < ApplicationController
   before_action :find_mission_by_id, only: %i[show edit update destroy]
 
   def index
-    @missions = Mission.title_like(search_title).status(search_status).order(sort).page(params[:page])
+    # N+1?
+    @missions = User.find(session[:user_id]).mission.title_like(search_title).status(search_status).order(sort).page(params[:page])
   end
 
   def show; end
@@ -27,7 +28,7 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
-
+    @mission.user_id = session[:user_id]
     if @mission.save
       redirect_to missions_url, notice: I18n.t(:create_mission, scope: :notice)
     else

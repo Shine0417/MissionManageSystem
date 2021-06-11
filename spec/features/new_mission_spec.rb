@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'new mission', type: :feature do
+  let!(:login) { login_default }
   let(:test_mission) { { title: 'Test title', description: 'Hello World' } }
 
   scenario 'Add new mission' do

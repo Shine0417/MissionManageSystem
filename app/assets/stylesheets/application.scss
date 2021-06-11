@@ -20,6 +20,16 @@
 // variable override
 $primary: #6610f2;
 @import "bootstrap/scss/bootstrap";
+.header {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+}
+
+.header h2 {
+    font-weight: 700;
+}
+
 .mission-container {
     display: flex;
     flex-direction: column;
@@ -52,7 +62,9 @@ $primary: #6610f2;
     max-height: 50px;
 }
 
-.index-body-table th {
+.index-body-table th,
+td {
+    max-width: 170;
     vertical-align: middle;
     text-align: center;
     justify-content: center;

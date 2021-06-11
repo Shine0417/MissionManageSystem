@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
   private
 
   def login_success
-    user = User.find_by(username: params[:username])
-    session[:user_id] = user.id if user.present? && user.authenticate(params[:password])
+    session[:user_id] = User.authenticate(params)
   end
 end

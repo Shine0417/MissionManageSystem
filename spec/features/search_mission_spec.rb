@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'search mission', type: :feature do
-  let!(:first) { Mission.create(title: 'Atest', description: 'a hello world', due_date: Time.new(2015, 1, 2, 3, 4, 5) , status: 0) }
-  let!(:second) { Mission.create(title: 'Btest', description: 'b hello world', due_date: Time.new(2016, 1, 2, 3, 4, 5) , status: 1) }
-  
+  let!(:login) { login_default }
+  let!(:first) { Mission.create(title: 'Atest', description: 'a hello world', due_date: Time.new(2015, 1, 2, 3, 4, 5) , status: 0, user_id: get_default_userid) }
+  let!(:second) { Mission.create(title: 'Btest', description: 'b hello world', due_date: Time.new(2016, 1, 2, 3, 4, 5) , status: 1, user_id: get_default_userid) }
+
   scenario 'search title' do
     visit '/missions'
 

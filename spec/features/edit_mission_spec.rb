@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'edit mission', type: :feature do
-  let!(:test_mission) { Mission.create(title: "test title", description: "hello world") }
+  let!(:login) { login_default }
+  let!(:test_mission) { Mission.create(title: "test title", description: "hello world", user_id: get_default_userid) }
 
   scenario 'Edit mission' do
     visit '/missions'

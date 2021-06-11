@@ -1,0 +1,26 @@
+<%= render "components/header", text: t('user_table')%>
+<div class="index-body">
+  <div class="index-body-header">
+    <%# TODO search Form %> 
+    <div class="index-body-header-paginate m-1">
+      <p class="m-2">
+        <%= page_entries_info(@users).html_safe %>
+      </p>
+      <%= paginate @users, class: "pagination m-2"%>
+    </div>
+  </div>
+  <table class="table index-body-table" id="user_table">
+    <thead>
+      <th width="100px" class="text-start text-nowrap"><%= t('activerecord.attributes.user.username') %></th>
+      <th width="180px"><%= t('option') %></th>
+    </thead>
+    <tbody>
+      <%= render partial: "user", collection: @users %>
+    </tbody>
+  </table>
+  <div class="index-body-footer">
+    <i class="bi bi-clipboard-plus"></i>
+    <%= link_to t('create_new_user') , new_user_path, class: "btn btn-outline-primary"%>
+  </div>
+</div>
+</div>

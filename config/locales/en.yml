@@ -48,10 +48,16 @@ en:
           low: "Low"
           medium: "Medium"
           high: "High"
+      user:
+        username: "Username"
+        password: "Password"
   notice:
     create_mission: "Created a new mission!"
-    update_mission: "mission updated!"
-    destroy_mission:  "Mission Destroyed"
+    update_mission: "Mission updated!"
+    destroy_mission:  "Mission destroyed"
+    create_user: "Created a new user!"
+    update_user: "User updated!"
+    destroy_user:  "User destroyed"
   views:
     pagination:
       first: "&laquo; First"
@@ -87,3 +93,14 @@ en:
   not_set: "Not Set"
   enter_text: "Enter Text..."
   search: "Search"
+  all: "All"
+  login: "Login"
+  logout: "Logout"
+  signup: "Sign Up"
+  wrong_name_or_password: "Wrong Username or Password"
+  create_new_user: "Create new user"
+  logout_warning: "Do you want to Logout?"
+  please_login: "Pleas login"
+  mission_table: "Mission DashBoard"
+  user_table: "User DashBoard"
+  login_success: "Login Success"

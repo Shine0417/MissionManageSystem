@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+admin = User.create(username: 'admin', password_digest: '0000')
+if admin.present?
+    Mission.where(user_id: nil).each do |mission|
+        admin.mission << mission
+    end
+end

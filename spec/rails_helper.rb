@@ -6,6 +6,7 @@ require File.expand_path('../config/environment', __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/rails'
+require 'support/helpers'
 
 Capybara.register_driver :selenium_chrome_headless do |app|
 	options = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu disable-dev-shm-usage])
@@ -79,4 +80,7 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
+  config.include Helpers
+  User.create(username: 'defaultuser', password: '0000')
 end

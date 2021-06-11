@@ -19,6 +19,6 @@ class SessionsController < ApplicationController
   private
 
   def login_success
-    session[:user_id] = User.authenticate(params)
+    session[:user_id] = User.authenticate(params[:username], params[:password])
   end
 end

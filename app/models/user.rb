@@ -5,11 +5,11 @@ class User < ApplicationRecord
   validates :username, :password, presence: true
   validates_uniqueness_of :username, case_sensitive: true
 
-  def self.authenticate(params)
-    return @user.id if find_user_by_name(params[:username]) && @user.authenticate(params[:password])
+  def self.authenticate(username, password)
+    @user.id if find_user_by_name(username) && @user.authenticate(password)
   end
 
-  def self.find_user_by_name(name)
-    @user = User.find_by(username: name)
+  def self.find_user_by_name(username)
+    @user = User.find_by(username: username)
   end
 end

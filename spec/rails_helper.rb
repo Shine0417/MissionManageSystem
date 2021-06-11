@@ -73,7 +73,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.include Capybara::DSL
   # use gem 'shoulda-matchers' to make testing simpler
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|

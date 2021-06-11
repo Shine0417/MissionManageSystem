@@ -6,8 +6,9 @@ RSpec.feature 'destroy mission', type: :feature do
 
   scenario 'Delete mission', driver: :selenium_chrome_headless do
     visit '/missions'
+    
     accept_alert do
-      click_link(I18n.t(:destroy))
+      find('td', text: I18n.t(:destroy)).click_link(I18n.t(:destroy))
     end
 
     expect(page).to have_text(I18n.t(:destroy_mission, scope: :notice))

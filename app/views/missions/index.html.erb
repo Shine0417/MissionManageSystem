@@ -1,4 +1,9 @@
-<%= render "components/header", text: t('mission_table')%>
+<div class="d-flex">
+    <%= render "components/header", text: t('mission_table')%>
+  <div class="ms-4">
+    <%= link_to_if(@user.admin?, t('user_management') , users_url, class: "btn btn-primary align-items-center"){} %>
+  </div>
+</div>
 <div class="index-body">
   <div class="index-body-header">
     <%= render "search_form", controller: :missions, model: Mission%>

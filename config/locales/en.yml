@@ -109,3 +109,4 @@ en:
   user_table: "User DashBoard"
   login_success: "Login Success"
   permission_denied: "Permission Denied"
+  user_management: "User Management"

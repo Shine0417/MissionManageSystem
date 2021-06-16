@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user_by_id, only: %i[edit update destroy]
+  before_action :check_permission, only: %i[index edit update destroy]
   skip_before_action :check_login, only: %i[new create]
 
   def index
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
     redirect_to users_url, notice: I18n.t(:destroy_user, scope: :notice)
   end
 
-  def edit;end
+  def edit; end
 
   def update
     if @user.update(user_params)
@@ -42,6 +43,10 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :role)
+  end
+
+  def check_permission
+    redirect_to root_url, notice: t('permission_denied') if User.find(session[:user_id]).user?
   end
 end

@@ -2,5 +2,6 @@
 <%= bootstrap_form_for @user do |f| %>
   <%= f.text_field :username %>
   <%= f.password_field :password %>
+  <%= f.select :role, options_for_select(User.roles.keys.map{|role| [t("activerecord.attributes.user.roles.#{role}"), role] }, @user.role),{}, disabled: !role_modify %>
   <%= f.submit t('signup') , name: nil, class: "btn btn-primary mt-2 float-sm-end" %>
 <% end %>

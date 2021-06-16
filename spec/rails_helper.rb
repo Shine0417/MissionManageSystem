@@ -82,5 +82,5 @@ RSpec.configure do |config|
   end
 
   config.include Helpers
-  User.create(username: 'defaultuser', password: '0000')
+  User.create(username: 'defaultuser', password: '0000', role: 1)
 end

@@ -3,8 +3,7 @@ class MissionsController < ApplicationController
 
   def index
     # N+1?
-    @user = User.find(session[:user_id])
-    @missions = @user.mission.title_like(search_title).status(search_status).order(sort).page(params[:page])
+    @missions = User.find(session[:user_id]).mission.title_like(search_title).status(search_status).order(sort).page(params[:page])
   end
 
   def show; end

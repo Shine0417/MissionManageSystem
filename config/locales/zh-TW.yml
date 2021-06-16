@@ -76,4 +76,3 @@
   user_table: "使用者列表"
   login_success: "登入成功"
   permission_denied: "權限不足"
-  user_management: "使用者管理"

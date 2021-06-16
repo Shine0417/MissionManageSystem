@@ -33,4 +33,16 @@ RSpec.feature 'search mission', type: :feature do
     expect(page).not_to have_text 'Atest'
     expect(page).not_to have_text 'Btest'
   end
+
+  scenario 'search tag' do
+    first.tags = [Tag.create(name: "math"), Tag.create(name: "english")]
+    first.save()
+
+    visit '/missions'
+    fill_in :tag_list, with: 'math'
+    click_button I18n.t('search')
+
+    expect(page).to have_text 'Atest'
+    expect(page).not_to have_text 'Btest'
+  end
 end

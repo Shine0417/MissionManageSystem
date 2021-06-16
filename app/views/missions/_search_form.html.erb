@@ -13,6 +13,9 @@
     <%= label_tag :reverse, t('reverse'), class: "btn btn-outline-secondary" %>
   </div>
   <div class="col-auto">
+    <%= text_field_tag :tag_list, @search_tags, {placeholder: t('tag_input_info'), class: "form-control"} %>
+  </div>
+  <div class="col-auto">
     <%= submit_tag t('search') , name: nil, class: "btn btn-primary " %>
   </div>
 <% end %>

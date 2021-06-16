@@ -16,11 +16,12 @@
   </div>
   <table class="table index-body-table" id="mission_table">
     <thead>
-      <th width="180px" class="text-start text-nowrap"><%= t('activerecord.attributes.mission.title') %></th>
+      <th width="120px" class="text-start text-nowrap"><%= t('activerecord.attributes.mission.title') %></th>
       <th width="80px"><%= t('activerecord.attributes.mission.due_date') %></th>
       <th width="80px"><%= t('activerecord.attributes.mission.status') %></th>
       <th width="70px"><%= t('activerecord.attributes.mission.priority') %></th>
-      <th width="180px"><%= t('option') %></th>
+      <th width="100px"><%= t('activerecord.attributes.tag') %></th>
+      <th width="130px"><%= t('option') %></th>
     </thead>
     <tbody>
       <%= render partial: "mission", collection: @missions %>

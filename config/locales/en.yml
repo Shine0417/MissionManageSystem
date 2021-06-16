@@ -55,6 +55,7 @@ en:
         roles:
           user: "User"
           admin: "Admin"
+      tag: "Tag"
   notice:
     create_mission: "Created a new mission!"
     update_mission: "Mission updated!"
@@ -110,3 +111,4 @@ en:
   login_success: "Login Success"
   permission_denied: "Permission Denied"
   user_management: "User Management"
+  tag_input_info: "Ex: Tag1 Tag2"

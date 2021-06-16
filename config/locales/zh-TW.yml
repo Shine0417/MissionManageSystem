@@ -24,6 +24,7 @@
         roles:
           user: "使用者"
           admin: "管理者"
+      tag: "標籤"
   notice:
     create_mission: "新增任務成功!"
     update_mission: "已更新任務!"
@@ -77,3 +78,4 @@
   login_success: "登入成功"
   permission_denied: "權限不足"
   user_management: "使用者管理"
+  tag_input_info: "ex: 標籤1 標籤2"

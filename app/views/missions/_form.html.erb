@@ -4,5 +4,6 @@
   <%= f.text_area :description , size: '50x10'%>
   <%= f.datetime_local_field :due_date%>
   <%= f.select :priority, options_for_select(Mission.priorities.keys.map{|pr| [t("activerecord.attributes.mission.priorities.#{pr}"), pr] }, @mission.priority),{class: "btn btn-outline-secondary dropdown-toggle"}%>
+  <%= f.text_field :tag_list, placeholder: t('tag_input_info') %>
   <%= f.submit t('submit'), name: nil, class: "btn btn-primary float-sm-end" %>
 <% end %>

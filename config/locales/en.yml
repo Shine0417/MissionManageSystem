@@ -51,10 +51,6 @@ en:
       user:
         username: "Username"
         password: "Password"
-        role: "role"
-        roles:
-          user: "User"
-          admin: "Admin"
   notice:
     create_mission: "Created a new mission!"
     update_mission: "Mission updated!"
@@ -108,4 +104,3 @@ en:
   mission_table: "Mission DashBoard"
   user_table: "User DashBoard"
   login_success: "Login Success"
-  permission_denied: "Permission Denied"

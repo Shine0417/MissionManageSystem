@@ -20,6 +20,10 @@
       user:
         username: "帳號名稱"
         password: "密碼"
+        role: "角色"
+        roles:
+          user: "使用者"
+          admin: "管理者"
   notice:
     create_mission: "新增任務成功!"
     update_mission: "已更新任務!"
@@ -71,3 +75,4 @@
   mission_table: "任務列表"
   user_table: "使用者列表"
   login_success: "登入成功"
+  permission_denied: "權限不足"

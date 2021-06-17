@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   resource :session, only: %w[new create destroy]
-  scope :admin do
-    resources :users, except: :new
+  namespace :admin do
+    resources :users
   end
-  resources :users, only: :new
   resources :missions
   
   root "sessions#new"

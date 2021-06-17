@@ -1,5 +1,5 @@
 <%= render "components/err", object: @user %>
-<%= bootstrap_form_for @user do |f| %>
+<%= bootstrap_form_for [:admin, @user] do |f| %>
   <%= f.text_field :username %>
   <%= f.password_field :password %>
   <%= f.select :role, options_for_select(User.roles.keys.map{|role| [t("activerecord.attributes.user.roles.#{role}"), role] }, @user.role),{}, disabled: !role_modify %>

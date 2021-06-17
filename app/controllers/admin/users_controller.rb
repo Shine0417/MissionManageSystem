@@ -1,6 +1,6 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   before_action :find_user_by_id, only: %i[edit update destroy show]
-  before_action :check_permission, only: %i[index edit update destroy show]
+  before_action :check_permission
   skip_before_action :check_login, only: %i[new create]
 
   def index
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_url, notice: I18n.t(:create_user, scope: :notice)
+      redirect_to admin_users_url, notice: I18n.t(:create_user, scope: :notice)
     else
       render :new
     end
@@ -23,22 +23,21 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
 
-    redirect_to users_url, notice: I18n.t(:destroy_user, scope: :notice)
+    redirect_to admin_users_url, notice: I18n.t(:destroy_user, scope: :notice)
   end
 
   def edit; end
 
   def update
     if @user.update(user_params)
-      redirect_to users_url, notice: I18n.t(:update_user, scope: :notice)
+      redirect_to admin_users_url, notice: I18n.t(:update_user, scope: :notice)
     else
       render :edit
     end
   end
 
   def show
-    session[:admin_view_user_id] = @user[:id]
-    redirect_to missions_path
+    @missions = @user.mission.includes(:tags).page(params[:page])
   end
 
   private

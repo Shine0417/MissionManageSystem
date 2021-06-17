@@ -34,10 +34,4 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-public/packs-test/manifest.json
-public/packs-test/js/application-18674dfee6e1e62c4081.js
-public/packs-test/js/application-18674dfee6e1e62c4081.js.map
-public/packs-test/js/application-bf1cac6f3e302f020de3.js
-public/packs-test/js/application-bf1cac6f3e302f020de3.js.map
-public/packs-test/media/fonts/bootstrap-icons-94eeade1.woff
-public/packs-test/media/fonts/bootstrap-icons-dfd0ea12.woff2
+public/packs-test/

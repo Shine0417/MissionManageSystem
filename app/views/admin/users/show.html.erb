@@ -1,12 +1,7 @@
-<div class="d-flex">
-    <%= render "components/header", text: t('mission_table')%>
-  <div class="ms-4">
-    <%= link_to_if(@user.admin?, t('user_management') , admin_users_path, class: "btn btn-primary align-items-center"){} %>
-  </div>
-</div>
+<h2><%= t('activerecord.attributes.user.username') %><%= @user.username %></h2>
+<%= render "components/header", text: t('mission_table')%>
 <div class="index-body">
   <div class="index-body-header">
-    <%= render "search_form", controller: :missions, model: Mission%>
     <div class="index-body-header-paginate m-1">
       <p class="m-2">
         <%= page_entries_info(@missions).html_safe %>
@@ -14,21 +9,17 @@
       <%= paginate @missions, class: "pagination m-2"%>
     </div>
   </div>
-  <table class="table index-body-table" id="mission_table">
+  <table class="table index-body-table" id="user_table">
     <thead>
       <th width="120px" class="text-start text-nowrap"><%= t('activerecord.attributes.mission.title') %></th>
       <th width="80px"><%= t('activerecord.attributes.mission.due_date') %></th>
       <th width="80px"><%= t('activerecord.attributes.mission.status') %></th>
       <th width="70px"><%= t('activerecord.attributes.mission.priority') %></th>
       <th width="100px"><%= t('activerecord.attributes.tag') %></th>
-      <th width="130px"><%= t('option') %></th>
     </thead>
     <tbody>
       <%= render partial: "mission", collection: @missions %>
     </tbody>
   </table>
-  <div class="index-body-footer">
-    <i class="bi bi-clipboard-plus"></i>
-    <%= link_to t('new_mission') , new_mission_path, class: "btn btn-outline-primary"%>
-  </div>
+</div>
 </div>

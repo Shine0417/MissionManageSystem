@@ -3,7 +3,7 @@ class MissionsController < ApplicationController
 
   def index
     # N+1?
-    @missions = User.find(session[:user_id]).mission.title_like(search_title).status(search_status).order(sort).page(params[:page])
+    @missions = current_user.mission.includes(:tags).title_like(search_title).status(search_status).tag(search_tags).order(sort).page(params[:page])
   end
 
   def show; end
@@ -49,7 +49,7 @@ class MissionsController < ApplicationController
   end
 
   def mission_params
-    params.require(:mission).permit(:title, :description, :due_date, :status, :priority)
+    params.require(:mission).permit(:title, :description, :due_date, :status, :priority, :tag_list)
   end
 
   def sort_by
@@ -70,5 +70,13 @@ class MissionsController < ApplicationController
 
   def search_status
     @search_status ||= (params[:status] || 'All')
+  end
+
+  def search_tags
+    @search_tags ||= (params[:tag_list] || '')
+  end
+
+  def current_user
+    @user ||= User.find(session[:user_id]) if session[:user_id].present?
   end
 end

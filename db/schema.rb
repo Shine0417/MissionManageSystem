@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_103519) do
+ActiveRecord::Schema.define(version: 2021_06_17_042935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,26 @@ ActiveRecord::Schema.define(version: 2021_06_09_103519) do
     t.index ["user_id"], name: "index_missions_on_user_id"
   end
 
+  create_table "missions_tags", id: false, force: :cascade do |t|
+    t.bigint "mission_id"
+    t.bigint "tag_id"
+    t.index ["mission_id"], name: "index_missions_tags_on_mission_id"
+    t.index ["tag_id"], name: "index_missions_tags_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role", default: 0, null: false
+    t.integer "missions_count", default: 0
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

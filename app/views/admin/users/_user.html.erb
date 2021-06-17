@@ -1,0 +1,10 @@
+<tr id="tr_<%= user.id %>">
+  <td class="text-start overflow-hidden"><%= user.username %></td>
+  <td class="text-start overflow-hidden"><%= user.missions_count %></td>
+  <td>
+    <%= link_to t('show') , admin_user_path(user), class: "btn btn-light" %>
+    <%= link_to t('edit') , edit_admin_user_path(user), class: "btn btn-light"%>
+    <%= link_to t('destroy') , admin_user_path(user), method: :delete,
+                                        data:{confirm: t("destroy_warning") }, class: "btn btn-danger"%>
+  </td>
+</tr>

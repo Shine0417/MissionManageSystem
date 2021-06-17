@@ -4,6 +4,11 @@
   <td><%= render "status_form", mission: mission %></td>
   <td><%= t("activerecord.attributes.mission.priorities.#{mission.priority}") %></td>
   <td>
+    <% mission.tags.map do |tag|%>
+      <span class="badge rounded-pill bg-success"><%= tag.name %></span>
+    <%end%>
+  </td>
+  <td>
     <%= link_to t('show') , mission_path(mission), class: "btn btn-light" %>
     <%= link_to t('edit') , edit_mission_path(mission), class: "btn btn-light"%>
     <%= link_to t('destroy') , mission_path(mission), method: :delete,

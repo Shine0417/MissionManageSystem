@@ -51,6 +51,11 @@ en:
       user:
         username: "Username"
         password: "Password"
+        role: "role"
+        roles:
+          user: "User"
+          admin: "Admin"
+      tag: "Tag"
   notice:
     create_mission: "Created a new mission!"
     update_mission: "Mission updated!"
@@ -104,3 +109,7 @@ en:
   mission_table: "Mission DashBoard"
   user_table: "User DashBoard"
   login_success: "Login Success"
+  permission_denied: "Permission Denied"
+  user_management: "User Management"
+  tag_input_info: "Ex: Tag1 Tag2"
+  mission_count: "Number of Missions"

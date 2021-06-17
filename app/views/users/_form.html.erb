@@ -1,6 +1,0 @@
-<%= render "components/err", object: @user %>
-<%= bootstrap_form_for @user do |f| %>
-  <%= f.text_field :username %>
-  <%= f.password_field :password %>
-  <%= f.submit t('signup') , name: nil, class: "btn btn-primary mt-2 float-sm-end" %>
-<% end %>

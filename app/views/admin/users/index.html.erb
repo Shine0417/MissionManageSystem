@@ -12,6 +12,7 @@
   <table class="table index-body-table" id="user_table">
     <thead>
       <th width="100px" class="text-start text-nowrap"><%= t('activerecord.attributes.user.username') %></th>
+      <th width="100px" class="text-start text-nowrap"><%= t('mission_count') %></th>
       <th width="180px"><%= t('option') %></th>
     </thead>
     <tbody>
@@ -20,7 +21,7 @@
   </table>
   <div class="index-body-footer">
     <i class="bi bi-clipboard-plus"></i>
-    <%= link_to t('create_new_user') , new_user_path, class: "btn btn-outline-primary"%>
+    <%= link_to t('create_new_user') , new_admin_user_path, class: "btn btn-outline-primary"%>
   </div>
 </div>
 </div>

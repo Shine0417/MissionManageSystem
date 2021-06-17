@@ -3,9 +3,7 @@ class MissionsController < ApplicationController
 
   def index
     # N+1?
-    @user = User.find(session[:user_id])
-
-    @missions = @user.mission.includes(:tags).title_like(search_title).status(search_status).tag(search_tags).order(sort).page(params[:page])
+    @missions = current_user.mission.includes(:tags).title_like(search_title).status(search_status).tag(search_tags).order(sort).page(params[:page])
   end
 
   def show; end
@@ -76,5 +74,9 @@ class MissionsController < ApplicationController
 
   def search_tags
     @search_tags ||= (params[:tag_list] || '')
+  end
+
+  def current_user
+    @user ||= User.find(session[:user_id]) if session[:user_id].present?
   end
 end

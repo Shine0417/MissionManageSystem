@@ -50,7 +50,11 @@ class Admin::UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :role)
   end
 
+  def current_admin_user
+    @current_admin_user ||= User.admin.find(session[:user_id])
+  end
+
   def check_permission
-    redirect_to root_url, notice: t('permission_denied') if User.find(session[:user_id]).user?
+    redirect_to root_url, notice: t('permission_denied') unless current_admin_user
   end
 end

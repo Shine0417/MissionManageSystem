@@ -4,7 +4,6 @@ class MissionsController < ApplicationController
   def index
     # N+1?
     @user = User.find(session[:user_id])
-    @user = User.find(session[:admin_view_user_id]) if session[:admin_view_user_id].present? && @user.admin?
 
     @missions = @user.mission.includes(:tags).title_like(search_title).status(search_status).tag(search_tags).order(sort).page(params[:page])
   end

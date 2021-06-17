@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :mission
+  has_many :mission, dependent: :destroy
 
   enum role: { user: 0, admin: 1 }
 

@@ -13,7 +13,7 @@
   <body>
     <header class="header g-3">
       <h2><i class="col bi bi-list-stars"></i><%= t('mission_management_system') %></h2>
-      <%= link_to_if(session[:user_id].present?, t('logout') , sessions_url, method: :delete,
+      <%= link_to_if(session[:user_id].present?, t('logout') , session_url, method: :delete,
                                         data:{confirm: t("logout_warning") }, class: "btn btn-secondary"){} %>
     </header>
     <p><%= flash[:notice] %></p>

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resource :sessions, only: %w[new create destroy]
+  resource :session, only: %w[new create destroy]
+  scope :admin do
+    resources :users, except: :new
+  end
+  resources :users, only: :new
   resources :missions
-  resources :users
+  
   root "sessions#new"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

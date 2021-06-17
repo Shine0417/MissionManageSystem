@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :find_user_by_id, only: %i[edit update destroy]
-  before_action :check_permission, only: %i[index edit update destroy]
+  before_action :find_user_by_id, only: %i[edit update destroy show]
+  before_action :check_permission, only: %i[index edit update destroy show]
   skip_before_action :check_login, only: %i[new create]
 
   def index
@@ -34,6 +34,11 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show
+    session[:admin_view_user_id] = @user[:id]
+    redirect_to missions_path
   end
 
   private

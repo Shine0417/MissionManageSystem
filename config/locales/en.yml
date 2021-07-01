@@ -70,6 +70,9 @@ en:
       previous: "&lsaquo; Prev"
       next: "Next &rsaquo;"
       truncate: "&hellip;"
+  errors:
+    not_found: "Errors#not_found"
+    internal_server_error: "Errors#internal_server_error"
   helpers:
     page_entries_info:
       one_page:

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+  # rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   before_action :set_locale
   before_action :check_login
   
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, notice: t('please_login') if User.find(session[:user_id]).nil?
   end
 
-  def record_not_found
-    redirect_to root_url, notice: "Cant find user id"
-  end
+  # def record_not_found
+  #   redirect_to root_url, notice: "Cant find user id"
+  # end
 end
